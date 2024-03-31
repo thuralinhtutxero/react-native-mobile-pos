@@ -1,4 +1,4 @@
-package com.perfect.solutions;
+package com.empire.rapidretail;
 
 import android.app.Application;
 import android.content.Context;
@@ -12,7 +12,7 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.config.ReactFeatureFlags;
 import com.facebook.soloader.SoLoader;
-import com.perfect.solutions.newarchitecture.MainApplicationReactNativeHost;
+import com.empire.rapidretail.newarchitecture.MainApplicationReactNativeHost;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import com.horcrux.svg.SvgPackage;

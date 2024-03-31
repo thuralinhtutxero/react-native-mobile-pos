@@ -19,13 +19,13 @@ const Loading = ({modal, show, onClose, infotext}) => {
   if (modal) {
     return (
       <MessageModalNormal show={show} onClose={onClose} width={90} height={90}>
-        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor:C.bluecolor}}>
           <Image
             source={I.app_logo}
             style={{width: 50, height: 50}}
             resizeMode={'contain'}
           />
-          <Text style={{color:'black'}}>{infotext ? infotext : 'Loading'}</Text>
+          <Text style={{color:'white'}}>{infotext ? infotext : 'Loading'}</Text>
         </View>
       </MessageModalNormal>
     );
@@ -34,7 +34,7 @@ const Loading = ({modal, show, onClose, infotext}) => {
       <View
         style={{
           flex: 1,
-          backgroundColor: 'white',
+          backgroundColor: C.bluecolor,
           alignItems: 'center',
           justifyContent: 'center',
         }}>

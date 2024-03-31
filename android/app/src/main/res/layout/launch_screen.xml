@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"  android:background="#0911b0">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"  android:background="#2E006D">
 	<ImageView
 	android:id="@+id/logo_id"
 	  android:src="@drawable/rectangle_1" android:scaleType="centerCrop" android:layout_width="90dp" android:layout_height="90dp" android:layout_centerInParent="true" />
@@ -8,7 +8,7 @@
 	android:layout_height="wrap_content"
 	android:layout_below="@+id/logo_id"
 	android:layout_centerHorizontal="true"
-	android:text="Perfect Solutions"
+	android:text="Rapid Retail"
 	android:textStyle="bold"
 	android:textSize="20dp"
 	android:textColor="@color/white"/>

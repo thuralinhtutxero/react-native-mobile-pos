@@ -7,7 +7,7 @@ export const COLOR = {
   textmuted: '#656363',
   blackbutton: '#323232',
   textfield: '#C4C4C4',
-  bluecolor: '#0911b0',
+  bluecolor: '#2E006D',
   windowWidth: Dimensions.get('window').width / 100,
   windowHeight: Dimensions.get('window').height / 100,
 };
@@ -138,7 +138,7 @@ export const isArrayhasData = (arr = []) => {
   return arr === null ? false : arr.length >= 1;
 };
 
-export const baseUrl = 'https://empirepos.pythonanywhere.com'; //without image
+export const baseUrl = 'https://rapidreatilpos.pythonanywhere.com'; //without image
 // export const baseUrl = 'https://mttonlinepos.pythonanywhere.com'; //with image
 
 

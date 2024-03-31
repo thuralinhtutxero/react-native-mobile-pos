@@ -794,7 +794,7 @@ const HomeScreen = ({ navigation, route }) => {
             resizeMode={'cover'}
           />
           <Text style={{ ...s.bold_label, fontSize: 23, marginLeft: 5 }}>
-            Dashboard
+            Rapid Retail
           </Text>
           <View
             style={{
@@ -839,182 +839,48 @@ const HomeScreen = ({ navigation, route }) => {
 
       {/* view */}
       <View style={{ flex: 1 }}>
-        <TouchableHighlight
-          underlayColor={'white'}
-          onPress={() => navigation.navigate('sales')}>
-          <ImageBackground
-            source={IMAGE.d1}
-            style={{
-              width: '100%',
-              marginTop: 8,
-            }}
-            imageStyle={{ borderRadius: 15 }}
-            resizeMode={'cover'}>
-            <View style={{ padding: 5, ...s.flexrow_aligncenter }}>
-              <Icons name={'wallet-sharp'} size={100} color={'#fff'} />
-              <View
-                style={{
-                  flexDirection: 'column',
-                  flex: 1,
-                }}>
-                <Text style={{ ...s.bold_label, color: 'white', fontSize: 25 }}>
-                  {t('Sales')}
-                </Text>
+         <View style={{ maxHeight: 100, flexDirection: 'row', marginTop: 5 }}>
+              <TouchableOpacity style={{ backgroundColor: C.bluecolor, borderRadius: 15, padding: 15, flex: 1 }} underlayColor="white" onPress={() => navigation.navigate('sales')}>
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                  <Icons name='cart' size={30} color={'#fff'} />
+                  <Text style={{ ...s.bold_label, color: 'white', marginLeft: 2 }}>{t('Sales')}</Text>
 
-                <Text
-                  style={{
-                    ...s.bold_label,
-                    marginTop: 10,
-                    fontSize: 20,
-                    color: 'white',
-                  }}>
+                </View>
+                <Text style={{ ...s.bold_label, color: 'white' }}>
                   {numberWithCommas(SumSales)} MMK
                 </Text>
-              </View>
-              <TouchableOpacity
-                underlayColor={'white'}
-                style={{ position: 'absolute', bottom: 5, right: 5 }}>
-                <Icons
-                  name={'arrow-forward-circle-outline'}
-                  size={50}
-                  color={'#fff'}
-                />
               </TouchableOpacity>
-            </View>
-          </ImageBackground>
-        </TouchableHighlight>
-        <TouchableHighlight
-          underlayColor={'white'}
-          onPress={() => navigation.navigate('expense')}>
-          <ImageBackground
-            source={IMAGE.d2}
-            style={{
-              width: '100%',
-              marginTop: 8,
-            }}
-            imageStyle={{ borderRadius: 15 }}
-            resizeMode={'cover'}>
-            <View style={{ padding: 5, ...s.flexrow_aligncenter }}>
-              <Icons name={'albums-outline'} size={100} color={'#fff'} />
-              <View
-                style={{
-                  flexDirection: 'column',
-                  flex: 1,
-                }}>
-                <Text style={{ ...s.bold_label, color: 'white', fontSize: 25 }}>
-                  {t('Expense')}
-                </Text>
+              <TouchableOpacity onPress={() => navigation.navigate('expense')} style={{ backgroundColor: C.bluecolor, borderRadius: 15, padding: 15, flex: 1, marginLeft: 4 }} underlayColor="white" >
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                  <Icons2 name='cash' size={30} color={'#fff'} />
+                  <Text style={{ ...s.bold_label, color: 'white', marginLeft: 2 }}>{t('Expense')}</Text>
 
-                <Text
-                  style={{
-                    ...s.bold_label,
-                    marginTop: 10,
-                    fontSize: 20,
-                    color: 'white',
-                  }}>
-                  {numberWithCommas(SumExpense)} MMK
+                </View>
+                <Text style={{ ...s.bold_label, color: 'white' }}>  {numberWithCommas(SumExpense)} MMK
                 </Text>
-              </View>
-              <TouchableOpacity
-                underlayColor={'white'}
-                style={{ position: 'absolute', bottom: 5, right: 5 }}>
-                <Icons
-                  name={'arrow-forward-circle-outline'}
-                  size={50}
-                  color={'#fff'}
-                />
               </TouchableOpacity>
-            </View>
-          </ImageBackground>
-        </TouchableHighlight>
-        <TouchableHighlight
-          underlayColor={'white'}
-          onPress={() => navigation.navigate('product', { screen: 'cpurchase' })}>
-          <ImageBackground
-            source={IMAGE.d3}
-            style={{
-              width: '100%',
-              marginTop: 8,
-            }}
-            imageStyle={{ borderRadius: 15 }}
-            resizeMode={'cover'}>
-            <View style={{ padding: 5, ...s.flexrow_aligncenter }}>
-              <Icons name={'cash'} size={100} color={'#fff'} />
-              <View
-                style={{
-                  flexDirection: 'column',
-                  flex: 1,
-                }}>
-                <Text style={{ ...s.bold_label, color: 'white', fontSize: 25 }}>
-                  {t('Purchase')}
-                </Text>
+          </View>
+           <View style={{ maxHeight: 100, flexDirection: 'row', marginTop: 5 }}>
+              <TouchableOpacity style={{ backgroundColor: C.bluecolor, borderRadius: 15, padding: 15, flex: 1 }} underlayColor="white" onPress={() => navigation.navigate('product', { screen: 'cpurchase' })}>
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                  <Icons name='layers' size={30} color={'#fff'} />
+                  <Text style={{ ...s.bold_label, color: 'white', marginLeft: 2 }}>{t('Purchase')}</Text>
 
-                <Text
-                  style={{
-                    ...s.bold_label,
-                    marginTop: 10,
-                    fontSize: 20,
-                    color: 'white',
-                  }}>
+                </View>
+                <Text style={{ ...s.bold_label, color: 'white' }}>
                   {numberWithCommas(SumProductCost)} MMK
                 </Text>
-              </View>
-              <TouchableOpacity
-                underlayColor={'white'}
-                style={{ position: 'absolute', bottom: 5, right: 5 }}>
-                <Icons
-                  name={'arrow-forward-circle-outline'}
-                  size={50}
-                  color={'#fff'}
-                />
               </TouchableOpacity>
-            </View>
-          </ImageBackground>
-        </TouchableHighlight>
-        <TouchableHighlight
-          underlayColor={'white'}
-          onPress={() => navigation.navigate('product', { screen: 'cproduct' })}>
-          <ImageBackground
-            source={IMAGE.d4}
-            style={{
-              width: '100%',
-              marginTop: 8,
-            }}
-            imageStyle={{ borderRadius: 15 }}
-            resizeMode={'cover'}>
-            <View style={{ padding: 5, ...s.flexrow_aligncenter }}>
-              <MIcons name={'local-mall'} size={100} color={'#fff'} />
-              <View
-                style={{
-                  flexDirection: 'column',
-                  flex: 1,
-                }}>
-                <Text style={{ ...s.bold_label, color: 'white', fontSize: 20 }}>
-                  {t('pd_balance_amount')}
-                </Text>
+              <TouchableOpacity  onPress={() => navigation.navigate('product', { screen: 'cproduct' })}  style={{ backgroundColor: C.bluecolor, borderRadius: 15, padding: 15, flex: 1, marginLeft: 4 }} underlayColor="white" >
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <Icons2 name={'package-variant-closed'} size={30} color={'#fff'} />
+                  <Text style={{ ...s.bold_label, color: 'white', marginLeft: 2 }}>{t('pd_balance_amount')}</Text>
 
-                <Text
-                  style={{
-                    ...s.bold_label,
-                    marginTop: 10,
-                    fontSize: 20,
-                    color: 'white',
-                  }}>
-                  {numberWithCommas(SumProduct)} MMK
+                </View>
+                <Text style={{ ...s.bold_label, color: 'white' }}>  {numberWithCommas(SumProduct)} MMK
                 </Text>
-              </View>
-              <TouchableOpacity
-                underlayColor={'white'}
-                style={{ position: 'absolute', bottom: 5, right: 5 }}>
-                <Icons
-                  name={'arrow-forward-circle-outline'}
-                  size={50}
-                  color={'#fff'}
-                />
               </TouchableOpacity>
-            </View>
-          </ImageBackground>
-        </TouchableHighlight>
+          </View>
 
         <View style={{ maxHeight: 100, flexDirection: 'row', marginTop: 5 }}>
           <TouchableOpacity style={{ backgroundColor: C.bluecolor, borderRadius: 15, padding: 15, flex: 1 }} underlayColor="white" onPress={() => navigation.navigate('customer')}>
@@ -1043,6 +909,107 @@ const HomeScreen = ({ navigation, route }) => {
 
 
       <View style={{ ...s.flexrow_aligncenter_j_between, marginTop: 8 }} />
+      <Text style={{ color: 'black', fontWeight: 'bold' }}>
+          {t('Sales_Chart')}
+        </Text>
+        <ScrollView
+          style={{ flexDirection: 'row' }}
+          horizontal
+          showsHorizontalScrollIndicator={false}>
+          <TouchableOpacity
+            underlayColor="white"
+            onPress={() => getSalesChartFromServer(salesData, 't')}>
+            <View
+              style={{
+                alignItems: 'center',
+                backgroundColor: C.blackbutton,
+                margin: 5,
+                borderRadius: 15,
+              }}>
+              <Text style={{ color: 'white', padding: 10 }}>{t('Today')}</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity
+            underlayColor="white"
+            onPress={() => getSalesChartFromServer(salesData, 'w')}>
+            <View
+              style={{
+                alignItems: 'center',
+                backgroundColor: C.blackbutton,
+                margin: 5,
+                borderRadius: 15,
+              }}>
+              <Text style={{ color: 'white', padding: 10 }}>
+                {t('Days_View')}
+              </Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity
+            underlayColor="white"
+            onPress={() => getSalesChartFromServer(salesData, 'm')}>
+            <View
+              style={{
+                alignItems: 'center',
+                backgroundColor: C.blackbutton,
+                margin: 5,
+                borderRadius: 15,
+              }}>
+              <Text style={{ color: 'white', padding: 10 }}>
+                {t('Months_View')}
+              </Text>
+            </View>
+          </TouchableOpacity>
+        </ScrollView>
+        <LineChart
+          data={{
+            labels: salesChartLabel,
+            datasets: [
+              {
+                data: salesChartData,
+              },
+            ],
+          }}
+          verticalLabelRotation={-90}
+          width={C.windowWidth * 95} // from react-native
+          height={300}
+          yAxisSuffix=" k"
+          withHorizontalLines
+          yAxisInterval={1} // optional, defaults to 1
+          chartConfig={chartConfig}
+          bezier
+          style={{
+            marginVertical: 8,
+            borderRadius: 16,
+          }}
+        />
+        <Text style={{ color: 'black', fontWeight: 'bold' }}>
+          {t('Sales_Table')}
+        </Text>
+
+        <Table borderStyle={{ borderWidth: 2, borderColor: '#000' }}>
+          <Row
+            data={[t('Date&Time'), t('Amount')]}
+            style={{
+              backgroundColor: '#f1f8ff',
+              height: 40,
+            }}
+            textStyle={{ color: 'black', textAlign: 'center' }}
+          />
+          <Rows data={salesTable} textStyle={{ margin: 6, color: 'black' }} />
+        </Table>
+        <View
+          style={{
+            ...s.flexrow_aligncenter_j_between,
+            margin: 10,
+            padding: 5,
+          }}>
+          <Text style={{ ...s.font_bold, color: 'black' }}>
+            {t('Total_Amount')}
+          </Text>
+          <Text style={{ ...s.font_bold, color: 'black' }}>
+            {numberWithCommas(tabletotalprice) + ' MMK'}
+          </Text>
+        </View>
       <View>
         {productData ? (
           <View style={{ flexDirection: 'column' }}>
@@ -1186,7 +1153,7 @@ const HomeScreen = ({ navigation, route }) => {
                       style={{
                         height: 40,
                         flexDirection: 'row',
-                        backgroundColor: 'red',
+                        backgroundColor: C.bluecolor,
                       }}>
                       <View style={{ ...headerstyle, width: tablearr[0] }}>
                         <Text style={{ color: 'white', textAlign: 'center' }}>
@@ -1246,107 +1213,7 @@ const HomeScreen = ({ navigation, route }) => {
           </>
         ) : null}
 
-        <Text style={{ color: 'black', fontWeight: 'bold' }}>
-          {t('Sales_Chart')}
-        </Text>
-        <ScrollView
-          style={{ flexDirection: 'row' }}
-          horizontal
-          showsHorizontalScrollIndicator={false}>
-          <TouchableOpacity
-            underlayColor="white"
-            onPress={() => getSalesChartFromServer(salesData, 't')}>
-            <View
-              style={{
-                alignItems: 'center',
-                backgroundColor: C.blackbutton,
-                margin: 5,
-                borderRadius: 15,
-              }}>
-              <Text style={{ color: 'white', padding: 10 }}>{t('Today')}</Text>
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity
-            underlayColor="white"
-            onPress={() => getSalesChartFromServer(salesData, 'w')}>
-            <View
-              style={{
-                alignItems: 'center',
-                backgroundColor: C.blackbutton,
-                margin: 5,
-                borderRadius: 15,
-              }}>
-              <Text style={{ color: 'white', padding: 10 }}>
-                {t('Days_View')}
-              </Text>
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity
-            underlayColor="white"
-            onPress={() => getSalesChartFromServer(salesData, 'm')}>
-            <View
-              style={{
-                alignItems: 'center',
-                backgroundColor: C.blackbutton,
-                margin: 5,
-                borderRadius: 15,
-              }}>
-              <Text style={{ color: 'white', padding: 10 }}>
-                {t('Months_View')}
-              </Text>
-            </View>
-          </TouchableOpacity>
-        </ScrollView>
-        <LineChart
-          data={{
-            labels: salesChartLabel,
-            datasets: [
-              {
-                data: salesChartData,
-              },
-            ],
-          }}
-          verticalLabelRotation={-90}
-          width={C.windowWidth * 95} // from react-native
-          height={300}
-          yAxisSuffix=" k"
-          withHorizontalLines
-          yAxisInterval={1} // optional, defaults to 1
-          chartConfig={chartConfig}
-          bezier
-          style={{
-            marginVertical: 8,
-            borderRadius: 16,
-          }}
-        />
-        <Text style={{ color: 'black', fontWeight: 'bold' }}>
-          {t('Sales_Table')}
-        </Text>
-
-        <Table borderStyle={{ borderWidth: 2, borderColor: '#000' }}>
-          <Row
-            data={[t('Date&Time'), t('Amount')]}
-            style={{
-              backgroundColor: '#f1f8ff',
-              height: 40,
-            }}
-            textStyle={{ color: 'black', textAlign: 'center' }}
-          />
-          <Rows data={salesTable} textStyle={{ margin: 6, color: 'black' }} />
-        </Table>
-        <View
-          style={{
-            ...s.flexrow_aligncenter_j_between,
-            margin: 10,
-            padding: 5,
-          }}>
-          <Text style={{ ...s.font_bold, color: 'black' }}>
-            {t('Total_Amount')}
-          </Text>
-          <Text style={{ ...s.font_bold, color: 'black' }}>
-            {numberWithCommas(tabletotalprice) + ' MMK'}
-          </Text>
-        </View>
+        
       </View>
     </ScrollView>
   );
@@ -1371,8 +1238,8 @@ const styles = StyleSheet.create({
 
 const chartConfig = {
   backgroundColor: 'black',
-  backgroundGradientFrom: '#4287f5',
-  backgroundGradientTo: '#548bf7',
+  backgroundGradientFrom: '#548bf7',
+  backgroundGradientTo: C.bluecolor,
   decimalPlaces: 0, // optional, defaults to 2dp
   color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
   labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,

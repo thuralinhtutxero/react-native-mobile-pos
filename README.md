@@ -1,5 +1,5 @@
 # react-native-mobile-pos
-Perfect Solutions (Mobile App)
+Rapid Retail (Mobile App)
 
 Target Sdk Version : 31
 ## Installation
@@ -44,8 +44,8 @@ https://support.google.com/admob/answer/9989980?hl=en&ref_topic=7384409&sjid=463
   After creating an app in AdMob, you will receive an ``APPID``. Copy this APPID and paste it into the ``app.json`` file in your project's root folder, as shown in the following example:
 ```json
 {
-  "name": "Perfect Solutions",
-  "displayName": "Perfect Solutions",
+  "name": "Rapid Retail",
+  "displayName": "Rapid Retail",
 
   "react-native-google-mobile-ads":{
     "android_app_id":"ca-app-pub-1234567890123456~1234567890", // Replace the APPID Here
