@@ -35,6 +35,7 @@ const SwitchToCart = ({item}) => {
         check: true,
         total: fitem.price,
         pdname: fitem.name,
+        extraprice: fitem.extraprice,
       };
 
       setCitem(d);
