@@ -160,7 +160,22 @@ const Product = ({ navigation }) => {
   const PostProductsToServer = (pd, pic, barcode = 0) => {
     const d = new FormData();
     d.append('name', pd.name);
-    d.append('price', pd.price);
+
+    // if pd.price has ,699, 000, 00,
+
+    if(pd.price.includes(',')){
+  
+      let price = pd.price.slice(0, pd.price.indexOf(','));
+      let extraprice = pd.price.slice(pd.price.indexOf(',') + 1, pd.price.length);
+      
+      d.append('price', price);
+      d.append('extraprice', extraprice);      
+    
+    }else{
+      d.append('price', pd.price);
+    }
+
+   
     d.append('cost', pd.cost);
     d.append('qty', pd.qty);
 
@@ -208,7 +223,18 @@ const Product = ({ navigation }) => {
     const d = new FormData();
     d.append('id', id);
     d.append('name', pd.name);
-    d.append('price', pd.price);
+
+    if(pd.price.includes(',')){
+
+      let price = pd.price.slice(0, pd.price.indexOf(','));
+      let extraprice = pd.price.slice(pd.price.indexOf(',') + 1, pd.price.length);
+
+      d.append('price', price);
+      d.append('extraprice', extraprice);
+    }else{
+
+      d.append('price', pd.price);
+    }
     d.append('cost', pd.cost);
     d.append('qty', pd.qty);
 
@@ -638,6 +664,7 @@ const Product = ({ navigation }) => {
               <Text style={{ ...s.bold_label, fontSize: 15 }}>
                 {numberWithCommas(item.price)} Ks
               </Text>
+          
             </View>
             {selectedItemId.includes(item.id) ? (
               <View style={{ marginLeft: 20 }}>
@@ -688,9 +715,15 @@ const Product = ({ navigation }) => {
                 }}>
                 {CategoryToText(item.category)}
               </Text>
+        
 
-              <Text style={{ ...s.bold_label, fontSize: 15, marginTop: 5 }}>
-                {numberWithCommas(item.price)} MMK
+              <Text style={{ ...s.bold_label, fontSize: 15, marginTop: 5 }} ellipsizeMode="tail"> 
+                {numberWithCommas(item.price)} Ks 
+                {item.extraprice? item.extraprice.map((e, i) => {
+                  return <Text key={i} style={{ ...s.bold_label, fontSize: 15, marginTop: 5 }}>
+                      | {numberWithCommas(e.extraprice)} Ks
+                  </Text>
+                }) : null}
               </Text>
               <Text style={{ ...s.normal_label, fontSize: 12, marginTop: 5 }}>
                 barcode : {item.barcode}
@@ -788,10 +821,18 @@ const Product = ({ navigation }) => {
       const [dop, setdop] = useState(false)
       const [editpd, seteditpd] = useState(epd)
       const [editbarcodemodal, seteditBarCodeModal] = useState(false);
-
-
-
       const onCloseeditBarCodeModal = () => seteditBarCodeModal(false);
+
+      useEffect(() => {
+        let data = epd;
+        if(data?.extraprice.length > 0){
+          let temp = { ...data, price: data.price + ','+ data?.extraprice.map(e => e.extraprice) }
+          seteditpd(temp)
+        }else{
+          seteditpd(data)
+        }
+     
+      }, [epd])
 
 
       const onHandleEPdtData = (e, name) => {
