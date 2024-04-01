@@ -160,7 +160,18 @@ const Product = ({ navigation }) => {
   const PostProductsToServer = (pd, pic, barcode = 0) => {
     const d = new FormData();
     d.append('name', pd.name);
-    d.append('price', pd.price);
+    if(pd.price.includes(',')){
+  
+      let price = pd.price.slice(0, pd.price.indexOf(','));
+      let extraprice = pd.price.slice(pd.price.indexOf(',') + 1, pd.price.length);
+      
+      d.append('price', price);
+      d.append('extraprice', extraprice);      
+    
+    }else{
+      d.append('price', pd.price);
+    }
+    
     d.append('cost', pd.cost);
     d.append('qty', pd.qty);
 
@@ -208,7 +219,18 @@ const Product = ({ navigation }) => {
     const d = new FormData();
     d.append('id', id);
     d.append('name', pd.name);
-    d.append('price', pd.price);
+    if(pd.price.includes(',')){
+  
+      let price = pd.price.slice(0, pd.price.indexOf(','));
+      let extraprice = pd.price.slice(pd.price.indexOf(',') + 1, pd.price.length);
+      
+      d.append('price', price);
+      d.append('extraprice', extraprice);      
+    
+    }else{
+      d.append('price', pd.price);
+    }
+    
     d.append('cost', pd.cost);
     d.append('qty', pd.qty);
 
@@ -789,6 +811,16 @@ const Product = ({ navigation }) => {
       const [editpd, seteditpd] = useState(epd)
       const [editbarcodemodal, seteditBarCodeModal] = useState(false);
 
+      useEffect(() => {
+        let data = epd;
+        if(data?.extraprice?.length > 0){
+          let temp = { ...data, price: data.price + ','+ data?.extraprice.map(e => e.extraprice) }
+          seteditpd(temp)
+        }else{
+          seteditpd(data)
+        }
+     
+      }, [epd])
 
 
       const onCloseeditBarCodeModal = () => seteditBarCodeModal(false);
