@@ -183,6 +183,8 @@ const ProductField = ({
     [ProductData, setProductData],
   );
 
+  const [cpriceclick, setCPriceClick] = useState([]);
+
   const ProductView = () => {
     const SumTotal = useMemo(() => {
       console.log('here');
@@ -195,6 +197,28 @@ const ProductField = ({
       setTotalAmount(amount);
       return amount;
     }, [CartData, setTotalAmount]);
+
+
+    const changePrice = (id) => {
+
+      let count = cpriceclick.filter(e => e == id).length;
+
+      setCPriceClick([...cpriceclick, id]);
+
+
+      let temp = [...CartData];
+      let index = temp.findIndex(e => e.name == id);
+      console.log(temp[index]);
+
+      temp[index].extraprice.push({ extraprice: temp[index].price });
+
+      let position = count % temp[index]?.extraprice.length;
+
+      let total = temp[index].extraprice[position].extraprice * temp[index].qty;
+
+      temp[index] = { ...temp[index], ['price']: temp[index].extraprice[position].extraprice, ['total']: total };
+      setCartData(temp);
+    };
 
     const CTITEM = ({item}) => {
       const labelstyle = {
@@ -215,7 +239,13 @@ const ProductField = ({
           }}>
           <Text style={labelstyle}>{item.pdname}</Text>
           <Text style={labelstyle}>{item.qty}</Text>
-          <Text style={labelstyle}>{numberWithCommas(item.price)}</Text>
+          {item?.extraprice?.length > 0 ? (
+            <TouchableOpacity onPress={() => changePrice(item.name)}>
+              <Text style={labelstyle}>{item.price}</Text>
+            </TouchableOpacity>
+          ) : (
+            <Text style={labelstyle}>{item.price}</Text>
+          )}
           <Text style={{...labelstyle, textAlign: 'right'}}>
             {numberWithCommas(item.total)}
           </Text>

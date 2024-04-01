@@ -161,7 +161,17 @@ const Product = ({ navigation }) => {
   const PostProductsToServer = (pd, pic, barcode = 0) => {
     const d = new FormData();
     d.append('name', pd.name);
-    d.append('price', pd.price);
+    if(pd.price.includes(',')){
+  
+      let price = pd.price.slice(0, pd.price.indexOf(','));
+      let extraprice = pd.price.slice(pd.price.indexOf(',') + 1, pd.price.length);
+      
+      d.append('price', price);
+      d.append('extraprice', extraprice);      
+    
+    }else{
+      d.append('price', pd.price);
+    }
     d.append('cost', 0);
     d.append('qty', pd.qty);
 
