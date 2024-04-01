@@ -825,7 +825,7 @@ const Product = ({ navigation }) => {
 
       useEffect(() => {
         let data = epd;
-        if(data?.extraprice.length > 0){
+        if(data?.extraprice?.length > 0){
           let temp = { ...data, price: data.price + ','+ data?.extraprice.map(e => e.extraprice) }
           seteditpd(temp)
         }else{
