@@ -138,7 +138,7 @@ export const isArrayhasData = (arr = []) => {
   return arr === null ? false : arr.length >= 1;
 };
 
-export const baseUrl = 'https://empirepsos.pythonanywhere.com'; //without image
+export const baseUrl = 'https://empirepos.pythonanywhere.com'; //without image
 // export const baseUrl = 'https://mttonlinepos.pythonanywhere.com'; //with image
 
   
