@@ -699,8 +699,13 @@ const Product = ({ navigation }) => {
                 {CategoryToText(item.category)}
               </Text>
 
-              <Text style={{ ...s.bold_label, fontSize: 15, marginTop: 5 }}>
-                {numberWithCommas(item.price)} MMK
+              <Text style={{ ...s.bold_label, fontSize: 15, marginTop: 5 }} ellipsizeMode="tail"> 
+                {numberWithCommas(item.price)} Ks 
+                {item.extraprice? item.extraprice.map((e, i) => {
+                  return <Text key={i} style={{ ...s.bold_label, fontSize: 15, marginTop: 5 }}>
+                      | {numberWithCommas(e.extraprice)} Ks
+                  </Text>
+                }) : null}
               </Text>
               <Text style={{ ...s.normal_label, fontSize: 12, marginTop: 5 }}>
                 barcode : {item.barcode}
