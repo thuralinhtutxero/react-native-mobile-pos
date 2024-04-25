@@ -163,19 +163,19 @@ const Product = ({ navigation }) => {
 
     // if pd.price has ,699, 000, 00,
 
-    if(pd.price.includes(',')){
-  
+    if (pd.price.includes(',')) {
+
       let price = pd.price.slice(0, pd.price.indexOf(','));
       let extraprice = pd.price.slice(pd.price.indexOf(',') + 1, pd.price.length);
-      
+
       d.append('price', price);
-      d.append('extraprice', extraprice);      
-    
-    }else{
+      d.append('extraprice', extraprice);
+
+    } else {
       d.append('price', pd.price);
     }
 
-   
+
     d.append('cost', pd.cost);
     d.append('qty', pd.qty);
 
@@ -187,9 +187,13 @@ const Product = ({ navigation }) => {
     d.append('pic', pic);
 
     if (!suppcoll) {
-      if (pd.supplier) d.append('supplier_name', pd.supplier);
+      if (pd.supplier) {
+         d.append('supplier_name', pd.supplier);
+      }
+    }else{
       return a.rqf()
     }
+
     if (!expcoll) d.append('expiry_date', date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate())
 
 
@@ -224,14 +228,14 @@ const Product = ({ navigation }) => {
     d.append('id', id);
     d.append('name', pd.name);
 
-    if(pd.price.includes(',')){
+    if (pd.price.includes(',')) {
 
       let price = pd.price.slice(0, pd.price.indexOf(','));
       let extraprice = pd.price.slice(pd.price.indexOf(',') + 1, pd.price.length);
 
       d.append('price', price);
       d.append('extraprice', extraprice);
-    }else{
+    } else {
 
       d.append('price', pd.price);
     }
@@ -664,7 +668,7 @@ const Product = ({ navigation }) => {
               <Text style={{ ...s.bold_label, fontSize: 15 }}>
                 {numberWithCommas(item.price)} Ks
               </Text>
-          
+
             </View>
             {selectedItemId.includes(item.id) ? (
               <View style={{ marginLeft: 20 }}>
@@ -715,13 +719,13 @@ const Product = ({ navigation }) => {
                 }}>
                 {CategoryToText(item.category)}
               </Text>
-        
 
-              <Text style={{ ...s.bold_label, fontSize: 15, marginTop: 5 }} ellipsizeMode="tail"> 
-                {numberWithCommas(item.price)} Ks 
-                {item.extraprice? item.extraprice.map((e, i) => {
+
+              <Text style={{ ...s.bold_label, fontSize: 15, marginTop: 5 }} ellipsizeMode="tail">
+                {numberWithCommas(item.price)} Ks
+                {item.extraprice ? item.extraprice.map((e, i) => {
                   return <Text key={i} style={{ ...s.bold_label, fontSize: 15, marginTop: 5 }}>
-                      | {numberWithCommas(e.extraprice)} Ks
+                    | {numberWithCommas(e.extraprice)} Ks
                   </Text>
                 }) : null}
               </Text>
@@ -825,13 +829,13 @@ const Product = ({ navigation }) => {
 
       useEffect(() => {
         let data = epd;
-        if(data?.extraprice?.length > 0){
-          let temp = { ...data, price: data.price + ','+ data?.extraprice.map(e => e.extraprice) }
+        if (data?.extraprice?.length > 0) {
+          let temp = { ...data, price: data.price + ',' + data?.extraprice.map(e => e.extraprice) }
           seteditpd(temp)
-        }else{
+        } else {
           seteditpd(data)
         }
-     
+
       }, [epd])
 
 
@@ -842,10 +846,10 @@ const Product = ({ navigation }) => {
         seteditpd(temp);
       };
 
-     
+
       return (
         <>
-         <MessageModalNormal
+          <MessageModalNormal
             show={editpdshow}
             onClose={onCloseeditpdshow}
             width={'100%'}
