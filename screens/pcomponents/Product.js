@@ -189,9 +189,9 @@ const Product = ({ navigation }) => {
     if (!suppcoll) {
       if (pd.supplier) {
          d.append('supplier_name', pd.supplier);
+      }else {
+        return a.rqf()
       }
-    }else{
-      return a.rqf()
     }
 
     if (!expcoll) d.append('expiry_date', date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate())
