@@ -172,9 +172,13 @@ const Product = ({ navigation }) => {
     d.append('pic', pic);
 
     if (!suppcoll) {
-      if (pd.supplier) d.append('supplier_name', pd.supplier);
+      if (pd.supplier) {
+         d.append('supplier_name', pd.supplier);
+      }
+    }else{
       return a.rqf()
     }
+
     if (!expcoll) d.append('expiry_date', date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate())
 
 
