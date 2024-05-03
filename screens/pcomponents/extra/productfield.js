@@ -71,6 +71,8 @@ const ProductField = ({
 
   const {CartData, setCartData} = useContext(CartContext);
 
+  const [cpriceclick, setCPriceClick] = useState([])
+
   const {isConnected} = useNetInfo();
 
   const SetOpenModal = () => {
