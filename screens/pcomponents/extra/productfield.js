@@ -239,13 +239,10 @@ const ProductField = ({
           }}>
           <Text style={labelstyle}>{item.pdname}</Text>
           <Text style={labelstyle}>{item.qty}</Text>
-          {item?.extraprice?.length > 0 ? (
-            <TouchableOpacity onPress={() => changePrice(item.name)}>
-              <Text style={labelstyle}>{item.price}</Text>
-            </TouchableOpacity>
-          ) : (
-            <Text style={labelstyle}>{item.price}</Text>
-          )}
+          {item?.extraprice?.length > 0 ? <TouchableOpacity style={labelstyle} onPress={() => changePrice(item.name)}>
+            <Text style={labelstyle}>{numberWithCommas(item.price)}</Text>
+          </TouchableOpacity>
+            : <Text style={labelstyle}>{numberWithCommas(item.price)}</Text>}
           <Text style={{...labelstyle, textAlign: 'right'}}>
             {numberWithCommas(item.total)}
           </Text>
