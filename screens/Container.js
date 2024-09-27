@@ -225,10 +225,7 @@ const SContainer = () => {
                         name="customersales"
                         component={CustomerReceiptView}
                       />
-                      <Stack.Screen
-                        name="supplierproducts"
-                        component={SupplierReceiptView}
-                      />
+                     
 
                       <Stack.Screen name="security" component={SecurityView} />
                       <Stack.Screen

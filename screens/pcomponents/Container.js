@@ -25,7 +25,7 @@ const Container = ({navigation, route}) => {
         headerShown: false,
         tabBarShowLabel: false,
         tabBarStyle: {
-          padding: 10,
+          padding: 8,
           paddingBottom: 20,
           height: 80,
         },
@@ -147,7 +147,7 @@ const Container = ({navigation, route}) => {
           ),
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="supplier"
         component={SupplierView}
         options={{
@@ -169,7 +169,7 @@ const Container = ({navigation, route}) => {
             </View>
           ),
         }}
-      />
+      /> */}
 
       {/* <Tab.Screen
         name="report"
